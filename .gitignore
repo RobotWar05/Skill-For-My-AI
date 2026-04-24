@@ -41,3 +41,6 @@ build/
 *.dll
 *.so
 *.dylib
+
+# Local Codex state
+.codex
