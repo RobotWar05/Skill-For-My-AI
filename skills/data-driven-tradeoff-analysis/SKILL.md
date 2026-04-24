@@ -1,3 +1,8 @@
+---
+name: data-driven-tradeoff-analysis
+description: Use when the user asks to compare technical alternatives and the agent must define criteria, gather evidence, explain tradeoffs, state risks and failure conditions, and recommend an option without presenting preference as fact.
+---
+
 # SKILL: data-driven-tradeoff-analysis
 
 ---
@@ -136,5 +141,5 @@ A structured comparison containing:
 
 ## 14. REFERENCES / SCRIPTS / ASSETS
 
-- Reference: `AGENTS.md` Section 4 — Data-driven decision making.
+- Reference: `AGENTS.md` data-driven decision rule — technical recommendations must explain reasoning, tradeoffs, risks, and when they should not be used.
 - No scripts or assets required.

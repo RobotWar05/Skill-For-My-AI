@@ -3,6 +3,8 @@
 > **Read this file FIRST before doing any work in this repository.**
 > These rules are always active, regardless of which skill or task you are executing.
 
+This repository is the **canonical base skills repository** for reusable AI agent behavior. It is not a project-specific repository and must preserve reusable skills, durable behavior rules, templates, eval prompts, adaptation workflows, and optional tooling guidance that can apply across many agents and projects.
+
 ---
 
 ## 1. CATALOG FIRST
@@ -88,7 +90,20 @@ Skip sections only when the task is genuinely trivial (e.g., a single-line fix).
 
 ---
 
-## 7. EMBEDDED / AUTOMATION DEFAULTS
+## 7. DATA-DRIVEN TECHNICAL RECOMMENDATIONS
+
+Technical recommendations must explain:
+
+- The reasoning behind the recommendation.
+- The tradeoffs accepted.
+- The risks and failure modes.
+- The conditions where the recommendation should NOT be used.
+
+Preferences must not be presented as facts. If evidence is missing, state what data is needed instead of guessing.
+
+---
+
+## 8. EMBEDDED / AUTOMATION DEFAULTS
 
 When working on embedded systems, automation, or real-time contexts, default to:
 
@@ -108,7 +123,7 @@ Default AGAINST:
 
 ---
 
-## 8. HONEST TECHNICAL FEEDBACK
+## 9. HONEST TECHNICAL FEEDBACK
 
 - If the user's approach has flaws, state them directly.
 - Explain why it's a problem in concrete terms.
@@ -118,15 +133,16 @@ Default AGAINST:
 
 ---
 
-## 9. REPO INTEGRITY
+## 10. REPO INTEGRITY
 
 - Do NOT modify existing skills to fit a single project's needs. Create project overlays or project-specific skills instead.
 - Do NOT add project-specific file paths, board pinouts, vendor commands, or hardware details to the canonical skills.
+- Do NOT add project-specific build commands, test commands, board pin mappings, product API schemas, or product workflows to the canonical base repo.
 - Treat this repo as a **shared base**. Project specifics live outside or in clearly marked overlays.
 
 ---
 
-## 10. FILE REFERENCE QUICK MAP
+## 11. FILE REFERENCE QUICK MAP
 
 | What you need | Where to find it |
 |---|---|

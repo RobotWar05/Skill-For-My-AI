@@ -1,3 +1,8 @@
+---
+name: source-first-citation
+description: Use when the user provides files, code snippets, logs, documentation, configuration, or system descriptions and the agent must treat those materials as primary evidence with specific source citations before using external knowledge.
+---
+
 # SKILL: source-first-citation
 
 ---

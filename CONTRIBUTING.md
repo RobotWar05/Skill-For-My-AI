@@ -10,11 +10,15 @@ This repository contains reusable, production-grade AI agent skills. Contributio
 
 1. **Check the catalog** (`skills/_catalog/README.md`) to confirm no existing skill covers the same task.
 2. **Copy the template** from `templates/skill-template/` into `skills/<your-skill-name>/`.
-3. **Fill in all 14 sections** of `SKILL.md`. No section may be left blank or filled with placeholder text.
-4. **Write eval prompts** — at least 5 test prompts (mix of positive and negative triggers) in `evals/prompts/<your-skill-name>.md`.
-5. **Update the catalog** — add your skill to `skills/_catalog/README.md` with all required fields.
-6. **Run the trigger checklist** (`evals/trigger-checklist.md`) against your new skill.
-7. **Submit a PR** with a clear description of:
+3. **Keep the required file structure**: every skill must live in `skills/<skill-name>/` and must have `SKILL.md`.
+4. **Fill the mandatory YAML frontmatter** at the top of `SKILL.md`:
+   - `name` must exactly match `<skill-name>`.
+   - `description` must be a specific trigger signal for agent loaders.
+5. **Fill in all 14 sections** of `SKILL.md`. No section may be left blank or filled with placeholder text.
+6. **Write eval prompts** — at least 5 test prompts (mix of positive and negative triggers) in `evals/prompts/<skill-name>.md`.
+7. **Update the catalog** — add your skill to `skills/_catalog/README.md` with all required fields.
+8. **Run the trigger checklist** (`evals/trigger-checklist.md`) against your new skill.
+9. **Submit a PR** with a clear description of:
    - What task the skill addresses.
    - Why no existing skill covers it.
    - How you verified trigger/anti-trigger accuracy.
@@ -49,6 +53,8 @@ This repository contains reusable, production-grade AI agent skills. Contributio
 ## Quality Standards
 
 - **No generic descriptions.** Every skill description must be specific enough to distinguish it from all other skills.
+- **Mandatory frontmatter.** Every `SKILL.md` must start with YAML frontmatter containing `name` and `description`.
+- **Stable triggers.** Every skill must include positive and negative trigger examples so agents can avoid false positives and false negatives.
 - **No fabrication.** Do not invent APIs, tools, commands, or test results in skill workflows or examples.
 - **No mega-skills.** If a skill tries to do more than one distinct workflow, split it.
 - **No project-specific content** in canonical skills. Use project overlays instead.

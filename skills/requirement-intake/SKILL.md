@@ -1,3 +1,8 @@
+---
+name: requirement-intake
+description: Use when the user presents a medium or large technical task and the agent must restate requirements, identify constraints, list missing information, and define the true engineering goal before proposing architecture, code, or a final solution.
+---
+
 # SKILL: requirement-intake
 
 ---

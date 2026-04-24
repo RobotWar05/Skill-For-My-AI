@@ -11,6 +11,7 @@ evals/
 ├─ README.md                # This file
 ├─ trigger-checklist.md     # Checklist for validating skill descriptions/triggers
 ├─ regression-process.md    # Process for testing after skill modifications
+├─ eval-result-template.md   # Template for recording manual eval results
 └─ prompts/                 # Test prompts per skill
    ├─ requirement-intake.md
    ├─ structured-technical-response.md
@@ -18,8 +19,12 @@ evals/
    ├─ architecture-first-solutioning.md
    ├─ review-debug-deep-mode.md
    ├─ embedded-automation-design.md
-   └─ skill-scaffolder.md
+   ├─ skill-scaffolder.md
+   ├─ data-driven-tradeoff-analysis.md
+   └─ coding-agent-discipline.md
 ```
+
+Current prompt coverage: 9 skill prompt files in `evals/prompts/`.
 
 ## How to Run Evals
 
@@ -31,6 +36,7 @@ evals/
    - **Positive triggers:** The skill activates and the output matches expected behavior.
    - **Negative triggers:** The skill does NOT activate (a different skill or direct answer is used).
 4. Record results: PASS / FAIL / PARTIAL with notes.
+5. Use `evals/eval-result-template.md` when recording a durable eval result.
 
 ### After Modifying a Skill
 

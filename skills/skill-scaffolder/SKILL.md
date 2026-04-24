@@ -1,3 +1,8 @@
+---
+name: skill-scaffolder
+description: Use when no existing catalog skill covers a recurring reusable workflow or when the user explicitly asks to create a new skill, requiring a complete SKILL.md, trigger examples, eval prompts, and catalog entry.
+---
+
 # SKILL: skill-scaffolder
 
 ---
@@ -53,7 +58,7 @@ Without a structured scaffolding process, new skills tend to be vague, overly br
 
 ## 7. EXPECTED OUTPUTS
 
-1. A complete `SKILL.md` with all 14 sections filled.
+1. A complete `SKILL.md` with mandatory YAML frontmatter and all 14 sections filled.
 2. A catalog entry for `skills/_catalog/README.md`.
 3. An eval prompt file for `evals/prompts/<skill-name>.md` with at least 5 test prompts.
 4. A classification report: what goes in the skill vs what should go elsewhere.
@@ -71,29 +76,32 @@ Without a structured scaffolding process, new skills tend to be vague, overly br
    - Lowercase, hyphenated, verb-noun or adjective-noun, max 4 words.
    - Verify uniqueness against the catalog.
 4. **Copy the template** from `templates/skill-template/SKILL.md`.
-5. **Fill Section 2 (DESCRIPTION) first.** This is the most critical section. Apply the checklist from `docs/naming-and-triggering-guidelines.md`:
+5. **Fill YAML frontmatter first.** Set `name` to the exact folder name and write a specific `description` because many agent loaders use it as the primary trigger signal.
+6. **Fill Section 2 (DESCRIPTION) next.** This is the most critical body section. Apply the checklist from `docs/naming-and-triggering-guidelines.md`:
    - [ ] Specifies task type?
    - [ ] Specifies context?
    - [ ] Lists concrete behaviors?
    - [ ] Distinguishable from all other skills?
    - [ ] Under 3 sentences?
-6. **Fill remaining sections 1, 3–14** following `docs/skill-authoring-rules.md`.
-7. **Check for trigger overlap** against existing skills. If overlap found:
+7. **Fill remaining sections 1, 3-14** following `docs/skill-authoring-rules.md`.
+8. **Check for trigger overlap** against existing skills. If overlap found:
    - Sharpen both descriptions.
    - Add cross-references in anti-triggers.
    - Add boundary test prompts.
-8. **Generate eval prompts:**
+9. **Generate eval prompts:**
    - At least 3 positive trigger prompts.
    - At least 2 negative trigger prompts.
    - Expected behavior and pass/fail criteria for each.
-9. **Create catalog entry** with all required fields.
-10. **Run `evals/trigger-checklist.md`** against the new skill.
+10. **Create catalog entry** with all required fields.
+11. **Run `evals/trigger-checklist.md`** against the new skill.
 
 ---
 
 ## 9. CONSTRAINTS
 
 - MUST verify no duplicate or overlapping skill exists before creating.
+- MUST include YAML frontmatter with `name` and `description` at the top of `SKILL.md`.
+- Frontmatter `name` MUST exactly match the skill folder name.
 - MUST fill ALL 14 sections — no blanks, no "TBD."
 - MUST generate eval prompts alongside the skill (not "later").
 - MUST NOT create mega-skills. If the skill has more than 12 workflow steps, it's too broad — split it.

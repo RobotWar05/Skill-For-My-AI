@@ -1,3 +1,8 @@
+---
+name: architecture-first-solutioning
+description: Use when a medium or large technical task requires architecture analysis across components, data flow, control flow, state, timing, constraints, and maintainability before implementation begins.
+---
+
 # SKILL: architecture-first-solutioning
 
 ---

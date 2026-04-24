@@ -1,7 +1,13 @@
+---
+name: skill-name-here
+description: Use when the agent must perform a specific reusable workflow. Replace this with a precise trigger description that states the task type, context, and expected behavior.
+---
+
 # SKILL: [skill-name-here]
 
 > **Instructions:** Copy this template to `skills/<your-skill-name>/SKILL.md`.
 > Fill every section. Do not leave placeholders. Do not write "TBD."
+> The YAML frontmatter above is mandatory and must remain at the very top of every skill.
 > Refer to `docs/skill-authoring-rules.md` for quality standards.
 > After completing, run `evals/trigger-checklist.md` against this skill.
 

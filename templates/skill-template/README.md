@@ -8,7 +8,7 @@ This directory contains the canonical template for creating new skills. It is us
 
 ```
 skill-template/
-├─ SKILL.md        # Template with all 14 required sections
+├─ SKILL.md        # Template with mandatory YAML frontmatter and all 14 required sections
 ├─ README.md        # This file
 ├─ references/      # Place for reference material (datasheets, standards, etc.)
 │  └─ .gitkeep
@@ -22,10 +22,13 @@ skill-template/
 
 1. Copy this entire directory to `skills/<your-skill-name>/`.
 2. Rename nothing — the `SKILL.md` file must keep its name.
-3. Open `SKILL.md` and follow the instructions in each section.
-4. Delete the instructional comments (in brackets) after filling in real content.
-5. Fill ALL 14 sections. No section may be blank or contain placeholder text.
-6. After completing:
+3. Open `SKILL.md` and keep the YAML frontmatter at the very top of the file.
+4. Set frontmatter `name` to the exact folder name.
+5. Replace frontmatter `description` with a precise trigger description. Many agent loaders use this as the primary trigger signal.
+6. Follow the instructions in each section.
+7. Delete the instructional comments (in brackets) after filling in real content.
+8. Fill ALL 14 sections. No section may be blank or contain placeholder text.
+9. After completing:
    - Add a catalog entry to `skills/_catalog/README.md`.
    - Create eval prompts in `evals/prompts/<skill-name>.md`.
    - Run `evals/trigger-checklist.md` against the new skill.
@@ -35,6 +38,9 @@ skill-template/
 Before considering the skill done:
 
 - [ ] All 14 sections filled with real content (no brackets, no "TBD").
+- [ ] `SKILL.md` starts with YAML frontmatter.
+- [ ] Frontmatter includes `name` and `description`.
+- [ ] Frontmatter `name` exactly matches the skill folder name.
 - [ ] Description is specific and distinguishable from all catalog skills.
 - [ ] At least 3 positive trigger examples.
 - [ ] At least 3 negative trigger examples with alternative skill references.

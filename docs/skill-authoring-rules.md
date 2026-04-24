@@ -4,7 +4,36 @@ This document defines the mandatory standards for writing skills in this reposit
 
 ---
 
-## 1. Single Responsibility
+## 1. Skill File Structure
+
+Every skill must live in its own directory:
+
+```text
+skills/<skill-name>/SKILL.md
+```
+
+Every `SKILL.md` must start with YAML frontmatter at the very top of the file:
+
+```yaml
+---
+name: skill-name
+description: Use when the agent must perform a specific reusable workflow in a specific context and produce specific behavior.
+---
+```
+
+Frontmatter requirements:
+
+- `name` is mandatory and must exactly match the skill folder name.
+- `description` is mandatory and must be a precise trigger signal for agent loaders.
+- The opening `---` must be the first line of the file.
+- The closing `---` must appear before the visible skill body.
+- Do not put comments, headings, or blank lines before the frontmatter.
+
+The description in frontmatter should match the intent of the DESCRIPTION section. Many agent loaders use it as the primary trigger signal.
+
+---
+
+## 2. Single Responsibility
 
 Each skill must address **exactly one workflow or task type**. If you find yourself writing "and also handles..." — stop. Split it into two skills.
 
@@ -12,9 +41,9 @@ Each skill must address **exactly one workflow or task type**. If you find yours
 
 ---
 
-## 2. Required Sections
+## 3. Required Sections
 
-Every `SKILL.md` must contain all 14 sections below, in this order:
+After the YAML frontmatter, every `SKILL.md` must contain all 14 sections below, in this order:
 
 | # | Section | Purpose |
 |---|---|---|
@@ -37,9 +66,9 @@ Every `SKILL.md` must contain all 14 sections below, in this order:
 
 ---
 
-## 3. Description Quality
+## 4. Description Quality
 
-The DESCRIPTION section is the most important section for trigger accuracy.
+The frontmatter `description` and Section 2 DESCRIPTION are the most important signals for trigger accuracy.
 
 ### Must:
 - Be specific enough that an agent can distinguish this skill from every other skill in the catalog.
@@ -59,7 +88,7 @@ The DESCRIPTION section is the most important section for trigger accuracy.
 
 ---
 
-## 4. Workflow Clarity
+## 5. Workflow Clarity
 
 The WORKFLOW section must be a numbered list of concrete steps. Each step should be actionable — an agent should be able to follow the workflow mechanically without needing to "interpret" the intent.
 
@@ -75,21 +104,23 @@ The WORKFLOW section must be a numbered list of concrete steps. Each step should
 
 ---
 
-## 5. Trigger and Anti-Trigger Precision
+## 6. Trigger and Anti-Trigger Precision
 
 ### Triggers (USE WHEN):
 - List specific, observable conditions — not "when appropriate."
 - Include keyword patterns the agent can match against.
 - Be concrete: "User provides a multi-paragraph problem statement with technical constraints" is better than "user has a complex request."
+- Include positive trigger examples in Section 11 for stable behavior.
 
 ### Anti-Triggers (DO NOT USE WHEN):
 - List conditions where the skill looks like it might apply but should NOT.
 - This is the most common source of mis-triggers — invest effort here.
 - Include examples of confusable tasks and which skill should handle them instead.
+- Include negative trigger examples in Section 12 for stable behavior.
 
 ---
 
-## 6. Examples Quality
+## 7. Examples Quality
 
 ### Positive Examples:
 - Minimum 3 examples.
@@ -103,7 +134,7 @@ The WORKFLOW section must be a numbered list of concrete steps. Each step should
 
 ---
 
-## 7. Constraints and Anti-Hallucination
+## 8. Constraints and Anti-Hallucination
 
 ### Constraints:
 - Hard rules that override general behavior.
@@ -117,7 +148,7 @@ The WORKFLOW section must be a numbered list of concrete steps. Each step should
 
 ---
 
-## 8. References and Supporting Materials
+## 9. References and Supporting Materials
 
 - If a skill needs reference material (API docs, standards, checklists), place them in the skill's `references/` subdirectory.
 - If a skill uses helper scripts, place them in `scripts/`.
@@ -126,7 +157,7 @@ The WORKFLOW section must be a numbered list of concrete steps. Each step should
 
 ---
 
-## 9. Adaptation Notes
+## 10. Adaptation Notes
 
 Every skill must include notes on how to adapt it for a project-specific context:
 
@@ -138,7 +169,7 @@ Every skill must include notes on how to adapt it for a project-specific context
 
 ---
 
-## 10. Naming
+## 11. Naming
 
 See `docs/naming-and-triggering-guidelines.md` for full naming rules. Summary:
 

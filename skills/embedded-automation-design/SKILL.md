@@ -1,3 +1,8 @@
+---
+name: embedded-automation-design
+description: Use when firmware, embedded systems, real-time automation, interrupts, hardware interfaces, or communication protocols require non-blocking design, explicit state machines, timeouts, watchdog safety, and clean hardware-to-application layering.
+---
+
 # SKILL: embedded-automation-design
 
 ---

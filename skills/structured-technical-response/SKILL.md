@@ -1,3 +1,8 @@
+---
+name: structured-technical-response
+description: Use when the primary task is to shape a non-trivial technical answer into the user's preferred structured format, without replacing a more specific domain skill's workflow or overriding evidence, review, architecture, or comparison processes.
+---
+
 # SKILL: structured-technical-response
 
 ---
@@ -10,7 +15,7 @@
 
 ## 2. DESCRIPTION
 
-Enforces a four-section response format (Summary of Request → Analysis/Architecture → Result/Solution → Additional Recommendations) for all non-trivial technical responses. This skill ensures that technical communication is clear, complete, and easy to follow — preventing stream-of-consciousness answers that bury the key information.
+Shapes a non-trivial technical answer into the user's preferred four-section format (Summary of Request -> Analysis/Architecture -> Result/Solution -> Additional Recommendations) when response structure is the primary need. This skill improves communication clarity without replacing a more specific domain workflow such as review/debug, architecture design, embedded design, source citation, or tradeoff analysis.
 
 ---
 
@@ -19,7 +24,7 @@ Enforces a four-section response format (Summary of Request → Analysis/Archite
 Unstructured technical responses are hard to review, easy to misinterpret, and difficult to act on. This skill exists to:
 
 - Ensure the agent demonstrates it understood the question before answering.
-- Force analytical depth before jumping to solutions.
+- Add communication structure when no more specific skill already defines the main workflow.
 - Make responses scannable — readers can jump to the section they need.
 - Capture secondary recommendations that would otherwise be forgotten.
 
@@ -27,10 +32,10 @@ Unstructured technical responses are hard to review, easy to misinterpret, and d
 
 ## 4. USE WHEN
 
-- The agent is producing a technical response longer than a short paragraph.
-- The response involves analysis, architecture, implementation plans, or technical explanations.
-- The user asks "how should I...", "what's the best approach to...", "explain...", "propose a solution for..."
-- The response would benefit from structure (more than 3 paragraphs of content).
+- The primary task is shaping a technical answer into the repo's standard structured response style.
+- The user explicitly asks for a structured answer, organized technical explanation, implementation plan, or solution write-up.
+- The response would otherwise be more than 3 paragraphs and no more specific skill defines the main workflow.
+- The skill is being combined with another skill only to format the final answer after that skill's workflow is complete.
 
 ---
 
@@ -41,6 +46,7 @@ Unstructured technical responses are hard to review, easy to misinterpret, and d
 - The user explicitly asks for a quick/short answer.
 - The response is purely a code block with minimal explanation needed.
 - The task is a review/debug task (use `review-debug-deep-mode` which has its own finding format).
+- The task is primarily architecture, embedded design, source-grounded citation, or option comparison; use the relevant domain skill first and apply only basic response structure unless the user asks for this format.
 
 ---
 
@@ -83,7 +89,7 @@ A response organized into four sections:
 ## 8. WORKFLOW
 
 1. **Read the full request** before starting the response.
-2. **Determine if this skill applies.** If the response would be under ~5 sentences, this skill is overhead — answer directly.
+2. **Determine if this skill applies.** If a more specific skill defines the main workflow, do not replace it; only use this skill to shape the final response when useful.
 3. **Write Section 1 (Summary).** Demonstrate understanding. Flag ambiguities.
 4. **Write Section 2 (Analysis).** Break down the technical aspects. Consider architecture, constraints, and alternatives.
 5. **Write Section 3 (Solution).** Provide the concrete answer. Include code, configs, or steps as needed.
@@ -96,6 +102,7 @@ A response organized into four sections:
 
 - MUST include all four section headers, even if a section is brief.
 - MUST NOT merge sections (e.g., combining Analysis and Solution into one block).
+- MUST NOT override the workflow or output obligations of a more specific active skill.
 - MUST keep Section 1 (Summary) concise — 1-3 sentences maximum.
 - MUST ensure Section 3 (Solution) is actionable — the user should be able to act on it without re-reading the Analysis.
 - MUST NOT pad sections with filler text. If a section is genuinely short, that's fine.
@@ -145,5 +152,5 @@ When adapting for a specific project:
 
 ## 14. REFERENCES / SCRIPTS / ASSETS
 
-- Reference: `AGENTS.md` Section 6 (Response Structure) — this skill is the detailed implementation of that rule.
+- Reference: `AGENTS.md` response structure rule — this skill is the detailed communication workflow for cases where structured presentation is the primary need.
 - No scripts or assets required.

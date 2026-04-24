@@ -1,3 +1,8 @@
+---
+name: review-debug-deep-mode
+description: Use when the user asks to review, debug, optimize, audit, or root-cause existing code, logs, failures, or system behavior and the agent must produce evidence-backed findings, severity, risks, and fix direction.
+---
+
 # SKILL: review-debug-deep-mode
 
 ---

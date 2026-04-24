@@ -30,6 +30,7 @@ List which canonical skills from the base repo apply to this project, and any pr
 | `review-debug-deep-mode` | Yes/No | [e.g., "Add ISR safety and watchdog checks to Pass 3"] |
 | `embedded-automation-design` | Yes/No | [e.g., "Watchdog period: 2s. Max ISR duration: 10μs"] |
 | `data-driven-tradeoff-analysis` | Yes/No | [Adjustments if any] |
+| `coding-agent-discipline` | Yes/No | [e.g., "Require project test command before reporting completion"] |
 
 ---
 

@@ -53,7 +53,10 @@ repo-root/
 │  ├─ when-to-use-skill-vs-agents.md  # What goes where
 │  ├─ adaptation-workflow.md      # How to adapt repo for a new project
 │  ├─ naming-and-triggering-guidelines.md  # Naming, triggers, anti-triggers
-│  └─ review-debug-standards.md   # Review/debug quality standards
+│  ├─ review-debug-standards.md   # Review/debug quality standards
+│  ├─ public-release-checklist.md # Public GitHub readiness checks
+│  ├─ attribution-policy.md       # External inspiration and license guidance
+│  └─ optional-tools.md           # Optional Magika/RTK tooling guidance
 │
 ├─ skills/                    # Reusable skill definitions
 │  ├─ _catalog/README.md         # Index of all skills
@@ -64,7 +67,8 @@ repo-root/
 │  ├─ review-debug-deep-mode/     # Deep review/debug/optimize
 │  ├─ embedded-automation-design/ # Embedded/automation best practices
 │  ├─ skill-scaffolder/           # Create new skills from template
-│  └─ data-driven-tradeoff-analysis/ # Compare solutions with evidence
+│  ├─ data-driven-tradeoff-analysis/ # Compare solutions with evidence
+│  └─ coding-agent-discipline/    # Keep code changes focused and verifiable
 │
 ├─ templates/                 # Scaffolding templates
 │  ├─ skill-template/            # Template for new skills
@@ -74,6 +78,7 @@ repo-root/
 │  ├─ README.md                  # Eval system overview
 │  ├─ trigger-checklist.md       # Description quality checklist
 │  ├─ regression-process.md      # Post-modification testing process
+│  ├─ eval-result-template.md     # Manual eval result record template
 │  └─ prompts/                   # Test prompts per skill
 │
 └─ examples/                  # Worked examples
@@ -117,10 +122,15 @@ See `CONTRIBUTING.md` for detailed steps. Summary:
 
 1. Verify no existing skill covers the same task (check catalog).
 2. Copy `templates/skill-template/` to `skills/<skill-name>/`.
-3. Fill all 14 required sections in `SKILL.md`.
-4. Write eval prompts in `evals/prompts/<skill-name>.md` (minimum 5).
-5. Update `skills/_catalog/README.md`.
-6. Run `evals/trigger-checklist.md` against the new skill.
+3. Keep `SKILL.md` at the root of that skill directory.
+4. Start `SKILL.md` with YAML frontmatter containing `name` and `description`.
+5. Ensure `name` exactly matches the folder name.
+6. Write a specific `description`; this is the primary trigger signal for many agent loaders.
+7. Fill all 14 required sections in `SKILL.md`.
+8. Include positive and negative trigger examples for stable behavior.
+9. Write eval prompts in `evals/prompts/<skill-name>.md` (minimum 5).
+10. Update `skills/_catalog/README.md`.
+11. Run `evals/trigger-checklist.md` against the new skill.
 
 ---
 
@@ -142,7 +152,9 @@ See `CONTRIBUTING.md` for detailed steps. Summary:
 |---|---|
 | Skill names | Lowercase, hyphenated, verb-noun or adjective-noun (e.g., `requirement-intake`) |
 | Skill files | Always `SKILL.md` inside a named directory |
+| Skill frontmatter | Mandatory YAML frontmatter at the top of every `SKILL.md` with `name` and `description` |
 | Descriptions | Specific enough to distinguish from all other skills; no generic wording |
+| Trigger examples | Positive and negative examples required for every skill |
 | Assumptions | Always labeled `ASSUMPTION` |
 | Facts vs Inferences | Always distinguished; never present inference as fact |
 | Project specifics | Never in canonical skills; use project overlays |

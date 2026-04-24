@@ -7,6 +7,26 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [Unreleased]
+
+### Added
+- `coding-agent-discipline` skill for focused, verifiable AI coding changes.
+- Eval prompts for `coding-agent-discipline`, bringing total skill prompt files to 9.
+- `evals/eval-result-template.md` for recording manual eval results.
+- `docs/public-release-checklist.md` for public GitHub readiness checks.
+- `docs/attribution-policy.md` for external inspiration and license-aware adaptation.
+- `docs/optional-tools.md` for optional Magika and RTK guidance.
+
+### Changed
+- Added mandatory YAML frontmatter to every existing skill and the skill template.
+- Clarified canonical base repository scope, data-driven technical recommendation rules, and project-specific content boundaries in `AGENTS.md`.
+- Added scope classifications and overlap boundary notes to the skill catalog.
+- Tightened `structured-technical-response` so it formats answers without replacing domain workflows.
+- Fixed `data-driven-tradeoff-analysis` to reference the stable AGENTS.md data-driven decision rule instead of a section number.
+- Updated authoring, contributing, template, eval, and README documentation for mandatory skill frontmatter and trigger examples.
+
+---
+
 ## [0.1.0] — 2026-04-23
 
 ### Added
@@ -35,7 +55,7 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - `evals/README.md`
   - `evals/trigger-checklist.md`
   - `evals/regression-process.md`
-  - 7 eval prompt files in `evals/prompts/`.
+  - 8 eval prompt files in `evals/prompts/`.
 - Examples:
   - `examples/example-project-adaptation.md`
   - `examples/example-skill-extension.md`
